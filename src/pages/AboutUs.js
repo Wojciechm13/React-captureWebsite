@@ -3,17 +3,20 @@ import React from 'react';
 import AboutSection from '../components/AboutSection';
 import ServicesSections from '../components/ServicesSection';
 import FaqSection from '../components/FaqSection';
+//Animations
+import {motion} from 'framer-motion'
+import {pageAnimation} from '../animation';
 
 const AboutUs = () =>{
+    //<> - this one is called fraction, you can use it if you dont want to have div wrapping your components
     return(
-        //this one is called fraction, you can use it if you dont want to have div wrapping your components
+        <motion.div exit='exit' variants={pageAnimation} initial='hidden' animate='show'>
         <> 
         <AboutSection/>
         <ServicesSections/>
         <FaqSection/>
-        
         </> 
-        // closing fraction
+        </motion.div>
     );
 };
 
