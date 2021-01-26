@@ -6,11 +6,14 @@ import FaqSection from '../components/FaqSection';
 
 const AboutUs = () =>{
     return(
-        <> //this one is called fraction, you can use it if you dont want to have div wrapping your components
+        //this one is called fraction, you can use it if you dont want to have div wrapping your components
+        <> 
         <AboutSection/>
         <ServicesSections/>
         <FaqSection/>
-        </> // closing fraction
+        
+        </> 
+        // closing fraction
     );
 };
 
