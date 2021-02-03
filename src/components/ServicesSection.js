@@ -8,10 +8,13 @@ import home2 from '../img/home2.png';
 //Styles
 import {SAbout, SDescription, SImage, SHide} from '../styles';
 import styled from 'styled-components';
+import {scrollReveal} from '../animation';
+import {useScroll} from './useScroll';
 
 const ServicesSections = () => {
+    const [element, controls] = useScroll();
     return(
-        <SServices>
+        <SServices variants={scrollReveal} animate={controls} initial="hidden" ref={element}>
             <SDescription>
                 <h2>High <span>quality</span> services</h2>
                 <SCards>
@@ -60,11 +63,17 @@ const SServices = styled(SAbout) `//styled(SAbout) it copies all the styling fro
         width:70%;
         padding: 2rem 0rem 4rem 0rem;
     }
+
+    
 `; 
 
 const SCards = styled.div`
     display:flex;
     flex-wrap: wrap;
+
+    @media (max-width: 1300px){
+        justify-content:center;        
+        }
 `;
 
 const SCard = styled.div`

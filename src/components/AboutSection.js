@@ -4,13 +4,11 @@ import home1 from '../img/home1.png';
 import {SAbout, SDescription, SImage, SHide} from '../styles';
 //Framer motion
 import {motion} from 'framer-motion';
+import {titleAnim, fade, photoAnim} from '../animation';
+import Wave from './Wave';
 
 const AboutSection = () =>{
 
-    const titleAnim = {
-        hidden: {opacity: 0},
-        show: {opacity:1, transition: {duration:2}},
-    };
     const container = {
         hidden: {x: 100},
         show: {x: 0, transition: {duration:0.55, staggerChildren: 0.5}},
@@ -20,7 +18,7 @@ const AboutSection = () =>{
     return(
         <SAbout>
             <SDescription>
-                <motion.div variants={container} initial="hidden" animate="show" className="title">
+                <motion.div>
                     <SHide>
                         <motion.h2 variants={titleAnim}>We work to make</motion.h2>
                     </SHide>
@@ -31,12 +29,13 @@ const AboutSection = () =>{
                         <motion.h2 variants={titleAnim}>true.</motion.h2>
                     </SHide>
                 </motion.div>
-                <p>Contact us for any phototgraphy or videography ideas that you have. We have professionals with amazing skills.</p>
-                <button>Contact Us</button>
+                <motion.p variants={fade}>Contact us for any phototgraphy or videography ideas that you have. We have professionals with amazing skills.</motion.p>
+                <motion.button variants={fade}>Contact Us</motion.button>
             </SDescription> 
             <SImage>
-                <img src={home1} alt="guy with a camera"/>
+                <motion.img variants={photoAnim} src={home1} alt="guy with a camera"/>
             </SImage>
+            <Wave/>
         </SAbout>
     );
 };
